@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class DataICzas {
 
@@ -14,7 +15,7 @@ public class DataICzas {
 
         System.out.println("dzisiejsza data i godzina - " + teraz);
 
-        DateTimeFormatter aktualna = DateTimeFormatter.ofPattern(" 'at' HH:mm:ss E yyyy-MM-dd");
+        DateTimeFormatter aktualna = DateTimeFormatter.ofPattern("HH:mm:ss E yyyy-MM-dd");
         String nowaDataCzas = teraz.format(aktualna);
 
         System.out.println("DZIS JEST - " + nowaDataCzas);
@@ -34,12 +35,16 @@ public class DataICzas {
 // 4. roznica dni miedzy datami
         LocalDate pierwszaData = LocalDate.of(1987, 05, 26);
         LocalDate drugaData = LocalDate.of(1984, 02, 27);
-        long roznicaDni = pierwszaData.getDayOfYear() - drugaData.getDayOfYear();
-        long roznicaLat = (pierwszaData.getYear() - drugaData.getYear()) * 365;
-        System.out.println(roznicaDni);
-        System.out.println(roznicaLat);
-        System.out.println("Roznica dni miedzy datami - " + (roznicaLat + roznicaDni));
+//        long roznicaDni = pierwszaData.getDayOfYear() - drugaData.getDayOfYear();
+//        long roznicaLat = (pierwszaData.getYear() - drugaData.getYear()) * 365;
+//        System.out.println(roznicaDni);
+//        System.out.println(roznicaLat);
+//        System.out.println("Roznica dni miedzy datami - " + (roznicaLat + roznicaDni));
         // nie mam uwzglednionego roku przestepnego o ile wypada :/
+        long iloscDniPomiedzyDatami = ChronoUnit.DAYS.between(drugaData, pierwszaData);
+        System.out.println("Roznica dni miedzy datami - " + iloscDniPomiedzyDatami);
+
+
 
 //5 czy data jest jedna przed druga
         boolean daty = pierwszaData.isAfter(drugaData);
@@ -50,6 +55,15 @@ public class DataICzas {
 
 // 6 dodanie do danej daty x dni
         System.out.println("Dodanie do dzisiejszej daty 12 dni - " + dzisiejszaData.plusDays(12) );
+
+// 7 rok przestepny
+
+        LocalDate data = LocalDate.of(2014,02, 12);
+        System.out.println(data.isLeapYear());
+
+        int rok = 2016;
+        boolean rokPrzesteny = ((rok % 4 == 0) && (rok % 100 != 0) || (rok % 400 ==0));
+        System.out.println("Czy dany rok jest przestepny ? " + rokPrzesteny);
 
 
         }

@@ -6,48 +6,33 @@ import java.util.Arrays;
 
 public class Tablice {
 
+
     public static void main(String[] args) {
 
 // Zad 1-6
-        double[] mojaTablica1 = new double[8];
-        mojaTablica1[0] = 6;
-        mojaTablica1[1] = 3;
-        mojaTablica1[2] = 5;
-        mojaTablica1[3] = 7;
-        mojaTablica1[4] = 1;
-        mojaTablica1[5] = 1;
-        mojaTablica1[6] = 7;
-        mojaTablica1[7] = 9;
+        double[] mojaTablica1 = new double[]{6,3,5,7,1,1,7,9};
 
-        double sumaLiczbTablicy1 = mojaTablica1[0] + mojaTablica1[1] + mojaTablica1[2] + mojaTablica1[3]
-                + mojaTablica1[4] + mojaTablica1[5] + mojaTablica1[6] + mojaTablica1[7];
+        double suma1 = 0;
+        for (int i = 0; i < mojaTablica1.length; i ++) {
+            suma1 += mojaTablica1[i];
+        }
+        System.out.println("Suma licz z tablicy 1 = " + suma1);
 
-        System.out.println("Srednia liczb z tablicy" + " " + sumaLiczbTablicy1 / 8);
+        System.out.println("Srednia liczb z tablicy 1 = " + " " + suma1 / mojaTablica1.length);
 
-        System.out.println("Najwiekszy elemet tablicy = " + NumberUtils.max(mojaTablica1));
-        System.out.println("Najmniejszy element tablicy = " + NumberUtils.min(mojaTablica1));
+        System.out.println("Najwiekszy elemet tablicy 1  - " + NumberUtils.max(mojaTablica1));
+        System.out.println("Najmniejszy element tablicy 1  -  " + NumberUtils.min(mojaTablica1));
 
-        double[] mojaTablica2 = new double[8];
-        mojaTablica2[0] = 1;
-        mojaTablica2[1] = 2;
-        mojaTablica2[2] = 3;
-        mojaTablica2[3] = 4;
-        mojaTablica2[4] = 5;
-        mojaTablica2[5] = 6;
-        mojaTablica2[6] = 7;
-        mojaTablica2[7] = 8;
+        double[] mojaTablica2 = new double[] {1,2,3,4,5,6,7,8};
 
-        double sumaLiczbTablicy2 = mojaTablica2[0] + mojaTablica2[1] + mojaTablica2[2] + mojaTablica2[3]
-                + mojaTablica2[4] + mojaTablica2[5] + mojaTablica2[6] + mojaTablica2[7];
+        double suma2 = 0;
+        for (int i = 0; i < mojaTablica2.length; i ++) {
+            suma2 += mojaTablica2[i];
+        }
+        System.out.println("Suma liczb tablicy 2 = " + suma2 );
 
-        System.out.println("Sume elementow tablicy1 = " + sumaLiczbTablicy1);
-        System.out.println("Suma elementow tablicy2 = " + sumaLiczbTablicy2);
-
-        System.out.println("Suma elementow tablicy1 i tablicy2" + " = "
-                + (sumaLiczbTablicy1 + sumaLiczbTablicy2));
         System.out.println("Mnozenie elementow tablicy1 i tablicy2" + " = "
-                + sumaLiczbTablicy1 * sumaLiczbTablicy2);
-
+                + suma1 * suma2);
 
 // Zad7 Tablica Stringow z imionami
 

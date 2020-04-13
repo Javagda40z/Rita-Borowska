@@ -20,7 +20,6 @@ public class Ciagi {
         System.out.println(lista);
 
         System.out.println(stworzCiagArytmetyczny(5, 1, 1));
-
     }
 
     public static List<Integer> stworzCiagArytmetyczny (int dlugosc, int pierwszy, int roznica) {
@@ -33,6 +32,14 @@ public class Ciagi {
         return ciag;
     }
 
+    public static boolean stworzCiagArytmetyczny(List<Integer> ciag) {
+        for (int i = 1; i + i < ciag.size(); i++){
+            if ((ciag.get(i - 1) + ciag.get(i +1)) / 2 != ciag.get(i)) {
+                return false;
 
+            }
+        }
+        return true;
+    }
 
 }
